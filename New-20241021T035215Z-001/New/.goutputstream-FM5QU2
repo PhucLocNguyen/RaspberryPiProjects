@@ -1,0 +1,80 @@
+import RPi.GPIO as GPIO
+import time
+from gpiozero import Robot
+
+# GPIO setup
+left_sensor = 21  # GPIO pin for left sensor
+right_sensor = 26  # GPIO pin for right sensor
+# Set pin for Motor L9110s
+motorA_1A = 12  # Motor A
+motorA_1B = 13  # Motor A
+motorB_1A = 10  # Motor B
+motorB_1B = 11  # Motor B
+
+GPIO.setmode(GPIO.BCM)  # Use BCM numbering for all pins
+GPIO.setup(left_sensor, GPIO.IN)  # Cảm biến bên trái là đầu vào
+GPIO.setup(right_sensor, GPIO.IN)  # Cảm biến bên phải là đầu vào
+
+robot = Robot(right=(12, 13), left=(11, 10))
+
+def turn_right_until_black_meet():
+    robot.value = (0.3, 0)
+    while true:
+        left_value = GPIO.input(left_sensor)
+        time.sleep(0.05)
+        if left_value == GPIO.HIGH:
+            break
+    robot.stop()
+        
+
+def turn_left_until_black_meet():
+    robot.value = (0, 0.3)
+    while true:
+        right_value = GPIO.input(right_sensor)
+        time.sleep(0.05)
+        if left_value == GPIO.HIGH:
+            break
+try:
+    prev_status = "inactive"
+    while True:
+        left_value = GPIO.input(left_sensor)
+        right_value = GPIO.input(right_sensor)
+        
+        if left_value == GPIO.LOW and right_value == GPIO.LOW:
+            print("2 white")
+            robot.forward(0.5)  # Both sensors on white
+            time.sleep(0.1)
+
+        elif right_value == GPIO.HIGH:
+            print("left white, right black")
+            prev_status = "right"
+            robot.value = (0, -0.7)
+            time.sleep(0.07)
+            robot.stop()
+            time.sleep(0.2)
+            robot.value = (1, 0) # right sensor on black, left sensor on white
+            time.sleep(0.08)
+            robot.stop()
+        elif left_value == GPIO.HIGH:
+            print("left black, right white")
+            prev_status = "left"
+            robot.value = (-0.7, 0)
+            time.sleep(0.07)
+            robot.stop()
+            time.sleep(0.2)
+            robot.value = (0, 1) # Left sensor on black, right sensor on white
+            time.sleep(0.08)
+            robot.stop()
+        elif left_value == GPIO.HIGH and right_value == GPIO.HIGH:
+            print("2 black")
+            robot.forward(0.5)  # Both sensors on white
+            time.sleep(0.1)
+            robot.stop()
+        else:
+            break
+
+        time.sleep(0.5)
+        #robot.stop()
+
+except KeyboardInterrupt:
+    GPIO.cleanup()

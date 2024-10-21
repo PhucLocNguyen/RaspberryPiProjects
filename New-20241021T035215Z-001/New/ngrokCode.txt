@@ -1,0 +1,6 @@
+sudo tar -xvzf ~/Downloads/https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz -C /usr/local/bin
+ngrok config add-authtoken 2m000yxBlaGzzZ82Qieny6kB2ag_6CWnQSgrTvkDbEZSD4xt5
+unzip ngrok-stable-linux-arm.zip
+Ngrok AuthKey: 2m000yxBlaGzzZ82Qieny6kB2ag_6CWnQSgrTvkDbEZSD4xt5
+./ngrok authtoken YOUR_AUTH_TOKEN
+./ngrok tcp 22

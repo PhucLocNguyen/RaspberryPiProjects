@@ -1,0 +1,469 @@
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/pi.py", line 411, in pin
+    pin = self.pins[info]
+          ~~~~~~~~~^^^^^^
+KeyError: PinInfo(number=23, name='GPIO11', names=frozenset({'WPI14', 'GPIO11', 'BOARD23', '11', 11, 'BCM11', 'J8:23'}), pull='', row=12, col=1, interfaces=frozenset({'', 'uart', 'i2c', 'spi', 'gpio', 'dpi'}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dell/Desktop/New/IRRemote_ThreadRunSuccess.py", line 52, in <module>
+    robot = Robot(right=(motorA_1A, motorA_1B), left=(motorB_1A, motorB_1B))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 108, in __call__
+    self = super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/boards.py", line 2146, in __init__
+    left = Motor(*left, pin_factory=pin_factory)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 108, in __call__
+    self = super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 1197, in __init__
+    ('forward_device', PinClass(forward, pin_factory=pin_factory)),
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 108, in __call__
+    self = super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 392, in __init__
+    super().__init__(pin, active_high=active_high, initial_value=None,
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 74, in __init__
+    super().__init__(pin, pin_factory=pin_factory)
+  File "/usr/lib/python3/dist-packages/gpiozero/mixins.py", line 75, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 553, in __init__
+    pin = self.pin_factory.pin(pin)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/pi.py", line 413, in pin
+    pin = self.pin_class(self, info)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/lgpio.py", line 126, in __init__
+    lgpio.gpio_claim_input(
+  File "/usr/lib/python3/dist-packages/lgpio.py", line 755, in gpio_claim_input
+    return _u2i(_lgpio._gpio_claim_input(handle&0xffff, lFlags, gpio))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/lgpio.py", line 458, in _u2i
+    raise error(error_text(v))
+lgpio.error: 'GPIO busy'
+/usr/lib/python3/dist-packages/gpiozero/output_devices.py:1509: PWMSoftwareFallback: To reduce servo jitter, use the pigpio pin factory.See https://gpiozero.readthedocs.io/en/stable/api_output.html#servo for more info
+  warnings.warn(PWMSoftwareFallback(
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/pi.py", line 411, in pin
+    pin = self.pins[info]
+          ~~~~~~~~~^^^^^^
+KeyError: PinInfo(number=12, name='GPIO18', names=frozenset({18, 'J8:12', '18', 'BOARD12', 'BCM18', 'WPI1', 'GPIO18'}), pull='', row=6, col=2, interfaces=frozenset({'', 'dpi', 'pwm', 'gpio', 'spi', 'pcm'}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dell/Desktop/New/testBluetooth.py", line 15, in <module>
+    servo = AngularServo(myServoPin, initial_angle=100, min_angle=0, max_angle=180)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 108, in __call__
+    self = super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 1725, in __init__
+    super().__init__(pin, initial_value=initial_value,
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 1503, in __init__
+    pwm_device=PWMOutputDevice(
+               ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 108, in __call__
+    self = super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 392, in __init__
+    super().__init__(pin, active_high=active_high, initial_value=None,
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 74, in __init__
+    super().__init__(pin, pin_factory=pin_factory)
+  File "/usr/lib/python3/dist-packages/gpiozero/mixins.py", line 75, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 553, in __init__
+    pin = self.pin_factory.pin(pin)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/pi.py", line 413, in pin
+    pin = self.pin_class(self, info)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/lgpio.py", line 126, in __init__
+    lgpio.gpio_claim_input(
+  File "/usr/lib/python3/dist-packages/lgpio.py", line 755, in gpio_claim_input
+    return _u2i(_lgpio._gpio_claim_input(handle&0xffff, lFlags, gpio))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/lgpio.py", line 458, in _u2i
+    raise error(error_text(v))
+lgpio.error: 'GPIO busy'
+Accepted connection from  ('4C:63:71:69:A2:1F', 1)
+Received:  up
+Moving forward
+Received:  0upup0
+Received:  up
+Moving forward
+Received:  0up0
+Received:  up
+Moving forward
+Received:  upup0up0up0up0up0up0up0up0
+Moving forward
+Received:  upupup0up0upup0upup0downdown
+Moving forward
+Received:  down0rightrightright0Ggleft0
+Received:  left0GgGgRrRr
+Received:  Rr
+No signal
+Received:  BbBb
+No signal
+Received:  left0left0up
+Received:  up0upup0stopstop
+Moving forward
+Received:  clearclearclearclear
+No signal
+Received:  B
+Received:  b
+Received:  R
+Received:  r
+Received:  G
+Received:  g
+Received:  clear
+Received:  clear
+Received:  up
+Moving forward
+Received:  up0
+Moving forward
+Received:  G
+Received:  g
+Received:  R
+Received:  r
+Received:  B
+Received:  b
+Received:  R
+Received:  r
+Received:  G
+Received:  g
+Received:  up
+Moving forward
+Received:  0leftleft0
+Received:  left
+Received:  leftleftleft0
+Received:  up
+Moving forward
+Received:  0
+Received:  down
+Received:  0
+Received:  clear
+Received:  clear
+Received:  stop
+GPIO cleanup
+/usr/lib/python3/dist-packages/gpiozero/output_devices.py:1509: PWMSoftwareFallback: To reduce servo jitter, use the pigpio pin factory.See https://gpiozero.readthedocs.io/en/stable/api_output.html#servo for more info
+  warnings.warn(PWMSoftwareFallback(
+Accepted connection from  ('4C:63:71:69:A2:1F', 1)
+Received:  G
+Received:  g
+Received:  R
+Received:  r
+Received:  Bb
+No signal
+Received:  Bb
+No signal
+Received:  B
+Received:  b
+Received:  up
+Moving forward
+Received:  0upup0upup
+Received:  upupupup0
+Moving forward
+Received:  up
+Moving forward
+Received:  upupupup0clearclear
+Moving forward
+Received:  clearclearclearclearclearclear
+No signal
+Received:  up
+Moving forward
+Received:  0up0upup0
+Received:  up
+Moving forward
+Received:  0up0upup0downdown0downdown0stopstopstop
+Received:  stop
+GPIO cleanup
+/usr/lib/python3/dist-packages/gpiozero/output_devices.py:1509: PWMSoftwareFallback: To reduce servo jitter, use the pigpio pin factory.See https://gpiozero.readthedocs.io/en/stable/api_output.html#servo for more info
+  warnings.warn(PWMSoftwareFallback(
+Accepted connection from  ('4C:63:71:69:A2:1F', 1)
+Received:  R
+Received:  r
+Received:  Gg
+No signal
+Received:  G
+Received:  g
+Received:  clearclear
+No signal
+Received:  clear
+Received:  clear
+Received:  R
+Received:  r
+Received:  B
+Received:  b
+Received:  G
+Received:  g
+Received:  clearclear
+No signal
+Received:  clear
+Received:  clear
+Received:  R
+Received:  r
+Received:  clear
+Received:  clear
+Received:  upup0
+Moving forward
+Received:  up0upupupupupupupup
+Moving forward
+Received:  upupupupupupup0
+Moving forward
+Received:  down0down0down0down0down0
+Received:  down0left0BbBb
+Received:  BbRrRrRrGgGg
+No signal
+Received:  Gg
+No signal
+Received:  GgGgGg
+No signal
+Received:  clearclear
+No signal
+Received:  clearclearclearclearclearclear
+No signal
+Received:  clearclearclearclear
+No signal
+Received:  RrRrR
+No signal
+Received:  rB
+No signal
+Received:  b
+Received:  G
+Received:  g
+Received:  G
+Received:  g
+Received:  R
+Received:  r
+Received:  up
+Moving forward
+Received:  upup0up0
+Moving forward
+Received:  up
+Moving forward
+Received:  0
+Received:  left
+Received:  left0
+Received:  right
+Received:  0
+Received:  up
+Moving forward
+Received:  0
+Received:  left
+Received:  0
+Received:  right
+Received:  0
+Received:  G
+Received:  g
+Received:  down
+Received:  0
+Received:  up
+Moving forward
+Received:  0
+Received:  left
+Received:  0
+Received:  right
+Received:  0
+Received:  left
+Received:  0
+Received:  up
+Moving forward
+Received:  0
+Received:  up
+Moving forward
+Received:  0upup0
+Received:  downdown0
+Received:  right0right0
+Received:  down
+Received:  0
+Received:  up
+Moving forward
+Received:  0
+Received:  R
+Received:  r
+Received:  left
+Received:  0
+Received:  up
+Moving forward
+Received:  0
+Received:  right
+Received:  0
+Received:  left
+Received:  0
+Received:  right
+Received:  0
+Received:  left0
+Received:  right
+Received:  0
+Received:  left
+Received:  0
+Received:  left
+Received:  0
+Received:  right
+Received:  0
+Received:  left
+Received:  0
+Received:  up0
+Moving forward
+Received:  right0
+Received:  down0
+Received:  rightright0
+Received:  up
+Moving forward
+Received:  up0
+Moving forward
+Received:  R
+Received:  r
+Received:  G
+Received:  g
+Received:  stop
+GPIO cleanup
+/usr/lib/python3/dist-packages/gpiozero/output_devices.py:1509: PWMSoftwareFallback: To reduce servo jitter, use the pigpio pin factory.See https://gpiozero.readthedocs.io/en/stable/api_output.html#servo for more info
+  warnings.warn(PWMSoftwareFallback(
+Accepted connection from  ('4C:63:71:69:A2:1F', 1)
+Received:  R
+Received:  r
+Received:  B
+Received:  b
+Received:  clear
+Received:  clear
+Received:  up
+Moving forward
+Received:  0
+Received:  up
+Moving forward
+Received:  0
+Received:  right
+Received:  0
+Received:  right
+Received:  right
+Received:  right
+Received:  0
+Received:  up
+Moving forward
+Received:  up0
+Moving forward
+Received:  rightright0
+Received:  right
+Received:  right
+Received:  right
+Received:  right
+Received:  right0
+Received:  B
+Received:  b
+Received:  right
+Received:  0
+Received:  down
+Received:  down0
+Received:  right
+Received:  right
+Received:  right
+Received:  right
+Received:  0
+Received:  up
+Moving forward
+Received:  upup0
+Moving forward
+Received:  left
+Received:  left
+Received:  left
+Received:  0
+Received:  clear
+Received:  clear
+Received:  B
+Received:  b
+Received:  R
+Received:  r
+Received:  G
+Received:  g
+Received:  R
+Received:  r
+Received:  B
+Received:  b
+Received:  clear
+Received:  clear
+Received:  up
+Moving forward
+Received:  0
+Received:  right
+Received:  right
+Received:  0
+Received:  right
+Received:  right
+Received:  right
+Received:  right
+Received:  0
+Received:  up
+Moving forward
+Received:  up0
+Moving forward
+Received:  down
+Received:  down0
+Received:  left
+Received:  left
+Received:  0
+Received:  up
+Moving forward
+Received:  0
+Received:  right
+Received:  0
+Received:  right
+Received:  right
+Received:  right
+Received:  0
+Received:  up
+Moving forward
+Received:  up0
+Moving forward
+Received:  down
+Received:  0
+Received:  stop
+GPIO cleanup
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/pi.py", line 411, in pin
+    pin = self.pins[info]
+          ~~~~~~~~~^^^^^^
+KeyError: PinInfo(number=12, name='GPIO18', names=frozenset({18, '18', 'GPIO18', 'BCM18', 'BOARD12', 'J8:12', 'WPI1'}), pull='', row=6, col=2, interfaces=frozenset({'', 'pwm', 'spi', 'gpio', 'pcm', 'dpi'}))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/dell/Desktop/New/testBluetooth.py", line 15, in <module>
+    servo = AngularServo(myServoPin, initial_angle=100, min_angle=0, max_angle=180)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 108, in __call__
+    self = super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 1725, in __init__
+    super().__init__(pin, initial_value=initial_value,
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 1503, in __init__
+    pwm_device=PWMOutputDevice(
+               ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 108, in __call__
+    self = super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 392, in __init__
+    super().__init__(pin, active_high=active_high, initial_value=None,
+  File "/usr/lib/python3/dist-packages/gpiozero/output_devices.py", line 74, in __init__
+    super().__init__(pin, pin_factory=pin_factory)
+  File "/usr/lib/python3/dist-packages/gpiozero/mixins.py", line 75, in __init__
+    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/gpiozero/devices.py", line 553, in __init__
+    pin = self.pin_factory.pin(pin)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/pi.py", line 413, in pin
+    pin = self.pin_class(self, info)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/gpiozero/pins/lgpio.py", line 126, in __init__
+    lgpio.gpio_claim_input(
+  File "/usr/lib/python3/dist-packages/lgpio.py", line 755, in gpio_claim_input
+    return _u2i(_lgpio._gpio_claim_input(handle&0xffff, lFlags, gpio))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/lgpio.py", line 458, in _u2i
+    raise error(error_text(v))
+lgpio.error: 'GPIO busy'
